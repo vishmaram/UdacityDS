@@ -1,0 +1,48 @@
+from os import listdir
+import glob
+
+ Below method will list all the files including python, txt etc.
+fileList = listdir('data/')
+print fileList
+
+ glob can be used to fetch the file names with a regular expression
+csvFileList = glob.glob('data/*.csv')
+print csvFileList
+
+for filePath in csvFileList:
+    print filePath
+
+
+
+ This will create a list of lists
+with open('data/enrollments.csv','rb') as f:
+    reader = unicodecsv.reader(f)
+    enrollmentslist = list(reader)
+
+
+ Below commented code can be used to load all the data at once
+fileDictObjects = []
+for file in csvFileList:
+    with open(file,'rb') as f:
+        reader = unicodecsv.DictReader(f)
+        fileDictObjects.append(list(reader))
+
+print fileDictObjects[0][0]
+
+ how many students have made atleast one project submissions vs no. of students
+ did not make any submissions. The histogram of students with number of projects submitted
+
+ What is general trend  of the activity of the persons across week day. Do
+students tend to spend more time in the week day or weekend?
+
+Does the activity of the student decrease from the time they have joined
+ the course?
+
+ Does the students who spend continuous activity each week make better submissions
+ of the projects or the students who work in the 11 minute?
+
+ what is the cancellation pattern of the accounts?
+
+ what are the total minutes of the activity across students. An histogram can be helpful.
+
+ How many of the students submitted the project before deadline and after deadline?
